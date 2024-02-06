@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: k3s-local-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      name: k3s-local
+  template:
+    metadata:
+      labels:
+        name: k3s-local
+    spec:
+      containers:
+        - name: k3s-local
+          image: nginx:1.14.2
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
