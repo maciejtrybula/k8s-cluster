@@ -2,13 +2,15 @@ apiVersion: v1
 kind: Service
 metadata:
   name: k3s-local-service
+  namespace: k3s-local
 spec:
   selector:
     name: k3s-local
   type: NodePort
+  externalTrafficPolicy: Local
   ports:
     - name: http
       port: 80
+      nodePort: 31313
       protocol: TCP
-      targetPort: 80
   

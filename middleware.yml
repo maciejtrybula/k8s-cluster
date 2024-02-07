@@ -1,0 +1,9 @@
+apiVersion: traefik.io/v1alpha1
+kind: Middleware
+metadata:
+  name: k3s-local-ingress
+  namespace: k3s-local
+spec:
+  ipWhiteList:
+    sourceRange:
+       - 1.2.3.4
